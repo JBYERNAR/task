@@ -24,9 +24,6 @@ class ProductController extends Controller
     public function list()
     {
         $productTypes = ProductType::with(['products.characters'])->get()->toArray();
-
-//        $products = Product::with('characters')->get()->toArray();
-//        dd($products);
         return view('list')->with('product_types',$productTypes);
     }
 
@@ -63,7 +60,6 @@ class ProductController extends Controller
 
         Character::create([
             'value'=>$request['size'],
-            'type_id'=>1,
             'product_id'=>$product->id,
         ]);
 
@@ -87,7 +83,6 @@ class ProductController extends Controller
 
         Character::create([
             'value'=>$request['weight'],
-            'type_id'=>2,
             'product_id'=>$product->id,
         ]);
 
@@ -112,17 +107,14 @@ class ProductController extends Controller
         ]);
         Character::create([
             'value'=>$request['height'],
-            'type_id'=>3,
             'product_id'=>$data->id,
         ]);
         Character::create([
             'value'=>$request['width'],
-            'type_id'=>4,
             'product_id'=>$data->id,
         ]);
         Character::create([
             'value'=>$request['length'],
-            'type_id'=>5,
             'product_id'=>$data->id
         ]);
 

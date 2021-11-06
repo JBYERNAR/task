@@ -10,7 +10,6 @@ use Illuminate\Support\Facades\Schema;
 
 class Character extends Model
 {
-    protected $with = ['types'];
     public $timestamps = false;
     protected $table = 'characters';
     protected $fillable = [
@@ -18,9 +17,4 @@ class Character extends Model
         'type_id',
         'product_id',
     ];
-
-    public function types(): BelongsTo
-    {
-        return $this->belongsTo(Type::class,'type_id','id');
-    }
 }

@@ -29,10 +29,4 @@ class Product extends Model
     {
         return $this->belongsTo(Character::class, 'product_type_id', 'id');
     }
-
-    public function types()
-    {
-        return $this->belongsToMany(Type::class, 'characters', 'product_id', 'type_id');
-    }
-
 }

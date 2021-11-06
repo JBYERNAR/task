@@ -18,8 +18,6 @@ class CreateCharactersTable extends Migration
         Schema::create('characters', function (Blueprint $table) {
             $table->id();
             $table->integer('value')->nullable(false);
-            $table->unsignedInteger('type_id');
-            $table->foreign('type_id')->references('id')->on('types');
             $table->unsignedInteger('product_id');
             $table->foreign('product_id')->references('id')->on('products');
         });
