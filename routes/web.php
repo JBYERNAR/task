@@ -15,11 +15,15 @@ use Illuminate\Support\Facades\Route;
 */
 Route::group(['namespace'=>'App\Http\Controllers'], function(){
 
-Route::get('/', 'JController@main');
-Route::get('/add', 'JController@add');
-Route::get('/list', 'JController@list');
-Route::post('/add/save','JController@add_save');
-
+Route::get('/', 'ProductController@main');
+Route::get('/add', 'ProductController@add')->name('add');
+Route::get('/add/dvd', 'ProductController@add_dvd');
+Route::get('/add/book', 'ProductController@add_book');
+Route::get('/add/furniture', 'ProductController@add_furniture');
+Route::get('/list', 'ProductController@list');
+Route::post('/add/dvd','ProductController@save_dvd')->name('dvdsv');
+Route::post('/add/book','ProductController@save_book')->name('booksv');
+Route::post('/add/furniture','ProductController@save_furniture')->name('furnituresv');
 });
 
 
